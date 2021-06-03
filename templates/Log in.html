@@ -1,0 +1,245 @@
+<!--<form action="{{ url_for("signinn")}}" method="post">-->
+<!--<fieldset>-->
+<!--    <legend>Sign-In:</legend>-->
+<!--    <label for="firstname">Email:</label></br>-->
+<!--    <input type="text" id="firstname" name="fname" placeholder="email"></br>-->
+<!--    <label for="lastname">Password:</label></br>-->
+<!--    <input type="text" id="lastname" name="lname" placeholder="password"></br>-->
+<!--    <a href = "/Profile"><button type="submit">Sign In</button></a></br>-->
+<!--    <a href = "signup">Click here to sign up!!!</a>-->
+<!--</fieldset>-->
+<!--</form>-->
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-image {
+  /* The image used */
+  background-image: url("/static/projimage1.jpeg");
+
+  /* Add the blur effect */
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 50%;
+  padding: 50px;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #ff5050;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #ff5050;
+}
+
+input[type=button] {
+  width: 100%;
+  background-color: #ff5050;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=button]:hover {
+  background-color: #ff5050;
+}
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+</style>
+</head>
+  <center><h1 style="font-family:noteworthy;">EVENT MANAGER</h1></center>
+<body>
+
+
+<div class="bg-image"></div>
+<div class="bg-text">
+
+  <center><h1 style="font-family:noteworthy;">WELCOME</h1></center>
+  <center><h2 style="font-family:noteworthy;">LOG IN</h2></center>
+  <form action="{{ url_for("signinn")}}" method="post">
+    <fieldset>
+      <label for="email" style="font-family:gillsans;">EMAIL</label>
+      <input type="text" id="email" name="fname" placeholder="Your email..">
+
+      <label for="password" style="font-family:gillsans;">PASSWORD</label>
+      <input type="text" id="password" name="lname" placeholder="Your password..">
+<!--      <a href="Profile.html">-->
+<!--        <input type="button" value="LOG IN">-->
+<!--      </a>-->
+<!--      <center><label for="password" style="font-family:gillsans;">OR</label></center>-->
+<!--      <a href="Sign%20up.html">-->
+<!--        <input type="button" value="SIGN UP">-->
+<!--      </a>-->
+
+      <a href = "/Profile"><input type="submit"></input></a></br>
+        <a href = "signup" style="color: white;">Click here to sign up!!!</a>
+    </fieldset>
+  </form>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;-->
+<!--&lt;!&ndash;<html>&ndash;&gt;-->
+<!--&lt;!&ndash;<style>&ndash;&gt;-->
+<!--&lt;!&ndash;body {&ndash;&gt;-->
+<!--&lt;!&ndash;    margin-left: 400px;&ndash;&gt;-->
+<!--&lt;!&ndash;    margin-right: 400px;&ndash;&gt;-->
+<!--&lt;!&ndash;    margin-top: 200px;&ndash;&gt;-->
+<!--&lt;!&ndash;    /*background-color: #ffcccc;*/&ndash;&gt;-->
+<!--&lt;!&ndash;    background-color: #fbdfdf;&ndash;&gt;-->
+<!--&lt;!&ndash;    background-image: url('img_girl.jpg');&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+<!--&lt;!&ndash;input[type=text], select {&ndash;&gt;-->
+<!--&lt;!&ndash;  width: 100%;&ndash;&gt;-->
+<!--&lt;!&ndash;  padding: 12px 20px;&ndash;&gt;-->
+<!--&lt;!&ndash;  margin: 8px 0;&ndash;&gt;-->
+<!--&lt;!&ndash;  display: inline-block;&ndash;&gt;-->
+<!--&lt;!&ndash;  border: 1px solid #ccc;&ndash;&gt;-->
+<!--&lt;!&ndash;  border-radius: 4px;&ndash;&gt;-->
+<!--&lt;!&ndash;  box-sizing: border-box;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+<!--&lt;!&ndash;input[type=submit] {&ndash;&gt;-->
+<!--&lt;!&ndash;  width: 100%;&ndash;&gt;-->
+<!--&lt;!&ndash;  background-color: #ff5050;&ndash;&gt;-->
+<!--&lt;!&ndash;  color: white;&ndash;&gt;-->
+<!--&lt;!&ndash;  padding: 14px 20px;&ndash;&gt;-->
+<!--&lt;!&ndash;  margin: 8px 0;&ndash;&gt;-->
+<!--&lt;!&ndash;  border: none;&ndash;&gt;-->
+<!--&lt;!&ndash;  border-radius: 4px;&ndash;&gt;-->
+<!--&lt;!&ndash;  cursor: pointer;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+<!--&lt;!&ndash;input[type=submit]:hover {&ndash;&gt;-->
+<!--&lt;!&ndash;  background-color: #ff5050;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+<!--&lt;!&ndash;div {&ndash;&gt;-->
+<!--&lt;!&ndash;  border-radius: 5px;&ndash;&gt;-->
+<!--&lt;!&ndash;  background-color: #f2f2f2;&ndash;&gt;-->
+<!--&lt;!&ndash;  padding: 20px;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+<!--&lt;!&ndash;</style>&ndash;&gt;-->
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<center><h1 style="font-family:noteworthy;">WELCOME BACK</h1></center>&ndash;&gt;-->
+<!--&lt;!&ndash;<center><h2 style="font-family:noteworthy;">LOG IN</h2></center>&ndash;&gt;-->
+<!--&lt;!&ndash;<div>&ndash;&gt;-->
+<!--&lt;!&ndash;    <form>&ndash;&gt;-->
+
+<!--&lt;!&ndash;      <label for="email" style="font-family:gillsans;">EMAIL</label>&ndash;&gt;-->
+<!--&lt;!&ndash;      <input type="text" id="email" name="email address" placeholder="Your email..">&ndash;&gt;-->
+
+<!--&lt;!&ndash;      <label for="password" style="font-family:gillsans;">PASSWORD</label>&ndash;&gt;-->
+<!--&lt;!&ndash;      <input type="text" id="password" name="password" placeholder="Your password..">&ndash;&gt;-->
+
+<!--&lt;!&ndash;      <input type="submit" value="LOG IN">&ndash;&gt;-->
+<!--&lt;!&ndash;      <center><label for="password" style="font-family:gillsans;">OR</label></center>&ndash;&gt;-->
+<!--&lt;!&ndash;      <input type="submit" value="SIGN UP">&ndash;&gt;-->
+<!--&lt;!&ndash;    </form>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->

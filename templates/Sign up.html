@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-image {
+  /* The image used */
+  background-image: url('/static/projimage1.jpeg');
+  /*background-color: rgb(0,0,0);*/
+  /* background-image: url("{{ url_for('static', filename='projimage1.jpeg') }}"); */
+  /* Add the blur effect */
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 50%;
+  padding: 50px;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #ff5050;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #ff5050;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+</style>
+</head>
+<!--  <center><h1 style="font-family:noteworthy;">EVENT MANAGER</h1></center>-->
+<body>
+
+
+<div class="bg-image"></div>
+<div class="bg-text">
+
+  <center><h1 style="font-family:noteworthy;">WELCOME BACK</h1></center>
+  <center><h2 style="font-family:noteworthy;">SIGN UP</h2></center>
+  <form action="{{ url_for("gfg")}}" method="post">
+    <fieldset>
+
+      <label for="name" style="font-family:gillsans;">NAME</label>
+      <input type="text" id="name" name="fullname" placeholder="Your full name..">
+
+      <label for="email" style="font-family:gillsans;">EMAIL</label>
+      <input type="text" id="email" name="fname" placeholder="Your email..">
+
+      <label for="password" style="font-family:gillsans;">PASSWORD</label>
+      <input type="text" id="password" name="lname" placeholder="Your password..">
+
+      <label for="location" style="font-family:gillsans;">LOCATION</label>
+      <input type="text" id="location" name="locationname" placeholder="Your location..">
+
+      <input type="submit" value="CREATE ACCOUNT">
+    </fieldset>
+  </form>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<style>-->
+<!--body {-->
+<!--    margin-left: 400px;-->
+<!--    margin-right: 400px;-->
+<!--    margin-top: 200px;-->
+<!--    /*background-color: #ffcccc;*/-->
+<!--    background-color: #fbdfdf;-->
+<!--    /*background-image: url('projimage1.jpeg');*/-->
+<!--}-->
+
+<!--input[type=text], select {-->
+<!--  width: 100%;-->
+<!--  padding: 12px 20px;-->
+<!--  margin: 8px 0;-->
+<!--  display: inline-block;-->
+<!--  border: 1px solid #ccc;-->
+<!--  border-radius: 4px;-->
+<!--  box-sizing: border-box;-->
+<!--}-->
+
+<!--input[type=submit] {-->
+<!--  width: 100%;-->
+<!--  background-color: #ff5050;-->
+<!--  color: white;-->
+<!--  padding: 14px 20px;-->
+<!--  margin: 8px 0;-->
+<!--  border: none;-->
+<!--  border-radius: 4px;-->
+<!--  cursor: pointer;-->
+<!--}-->
+
+<!--input[type=submit]:hover {-->
+<!--  background-color: #ff5050;-->
+<!--}-->
+
+<!--div {-->
+<!--  border-radius: 5px;-->
+<!--  background-color: #f2f2f2;-->
+<!--  padding: 20px;-->
+<!--}-->
+<!--</style>-->
+<!--<body>-->
+
+<!--<center><h1 style="font-family:noteworthy;">WELCOME</h1></center>-->
+<!--<center><h2 style="font-family:noteworthy;">SIGN UP</h2></center>-->
+<!--<div>-->
+<!--    <form action="{{ url_for("gfg")}}" method="post">-->
+
+<!--      <label for="name" style="font-family:gillsans;">NAME</label>-->
+<!--      <input type="text" id="name" name="fullname" placeholder="Your full name..">-->
+
+<!--      <label for="email" style="font-family:gillsans;">EMAIL</label>-->
+<!--      <input type="text" id="email" name="fname" placeholder="Your email..">-->
+
+<!--      <label for="password" style="font-family:gillsans;">PASSWORD</label>-->
+<!--      <input type="text" id="password" name="lname" placeholder="Your password..">-->
+
+<!--      <label for="location">City/Location:</label></br>-->
+<!--      <input type="text" id="location" name="locationname" placeholder="location"></br>-->
+<!--      <input type="submit" value="CREATE ACCOUNT">-->
+<!--    </form>-->
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->
