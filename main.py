@@ -369,6 +369,206 @@ def decline_invite():
     return recinvite()
 
 
+ 
+@app.route('/invites', methods=["GET", "POST"])
+def invites():
+    if request.method == "POST":
+        ev_name = request.args.get('ev_name', None)
+        print(ev_name)
+        x = request.form.getlist("hi")
+        # store data in table
+        for k in x:
+            cursor.execute("INSERT INTO invitation (event_name, email) values ('" + ev_name + "', '" + k + "');")
+            cnx.commit()
+        return feed()
+
+    people = "select * from signup"
+    # query = "select ev.event_id, ev.event_name, ev.event_type, ev.location, ev.date_time from Event ev join Feed fd on ev.event_id = fd.event_id where fd.user_email = %s;"
+    cursor.execute(people)
+    # ev_data = str(cursor.fetchall())
+
+    p_id = []
+    p_names = []
+    p_email = []
+    p_password = []
+    p_location = []
+    for (pep_id, pep_names, pep_email, pep_password, pep_location) in cursor:
+        p_id.append(pep_id)
+        p_names.append(pep_names)
+        p_email.append(pep_email)
+        p_password.append(pep_password)
+        p_location.append(pep_location)
+
+    jariwala = """
+            <!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+h1{
+  font-family:noteworthy;
+}
+h2 {
+  padding-left: 200px;
+  font-family:noteworthy;
+  text-decoration: underline;
+}
+
+form {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  z-index: 2;
+  width: 40%;
+  padding: 40px;
+  float: left;
+}
+textarea {
+  padding-left: 100px;
+  font-size: large;
+}
+body {
+  background-color: #ff9999
+}
+input[type=submit] {
+  width: 20%;
+  background-color: #000000;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+textarea{
+  width: 30%;
+  /*padding: 14px 20px;*/
+  margin: 15px 0;
+  border: none;
+  border-radius: 4px;
+}
+
+input[type=submit]:hover {
+  background-color: #000000;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 35%;
+  background-color: #000000;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #000000;
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+</style>
+    <center><h1>EVENT MANAGER</h1></center>
+  <p style="font-size: 20px; text-align: right; padding-right: 40px; background-color: white;"><a href="">Profile</a></p>
+</head>
+<body>
+<div>
+  <div style="width: 100%">
+    <img src="/static/PP3.jpeg" style="float:right;" width="750" height="650">
+  </div>
+  <div >
+    <h2 style="font-family:noteworthy;">INVITE</h2>
+    <form method="POST">
+    """
+    for i in range(len(p_email)):
+        jariwala += "<label class='container'>" + p_email[i] + "<input type='checkbox' name='hi' value='" + p_email[i] + "'><span class='checkmark'></span></label>"
+
+    jariwala += """
+            <input type="submit" value="Invite">
+    </form>
+  </div>
+</div>
+</body>
+</html>
+    """
+    return jariwala
 
   
   
