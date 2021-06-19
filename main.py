@@ -570,7 +570,140 @@ input[type=submit]:hover {
     """
     return jariwala
 
+@app.route('/feed')
+def feed():
+    query = "select email from currentemail"
+    cursor.execute(query)
+    email = str(cursor.fetchone()[0])
+
+    # get the events
+    # query = """ SET TRANSACTION ISOLATION LEVEL READ COMMITTED; START TRANSACTION;
+    #             select ev.event_id, ev.event_name, ev.event_type, ev.location, ev.date_time
+    #             from Event ev join Feed fd on ev.event_id = fd.event_id
+    #             where fd.user_email = %s;
+    #             COMMIT;
+    #             """
+    # cursor.execute("SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;")
+    # cursor.execute("START TRANSACTION;")
+
+    query = "select * from events where organizer='" + email + "';"
+    # query = "select ev.event_id, ev.event_name, ev.event_type, ev.location, ev.date_time from Event ev join Feed fd on ev.event_id = fd.event_id where fd.user_email = %s;"
+    cursor.execute(query)
+    # ev_data = str(cursor.fetchall())
+
+    names = []
+    types = []
+    locations = []
+    dates = []
+    details = []
+    orgzzz = []
+    for (event_name, event_date, location, event_type, detail, organizer) in cursor:
+        names.append(event_name)
+        types.append(event_type)
+        locations.append(location)
+        dates.append(event_date)
+        details.append(detail)
+        orgzzz.append(organizer)
+
+    aman = """
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+h1{
+  font-family:noteworthy;
+}
+h2 {
   
+  padding-left: 200px;
+  font-family:noteworthy;
+  text-decoration: underline;
+}
+
+h3{
+  text-decoration: underline;
+}
+textarea {
+  padding-left: 100px;
+  font-size: large;
+}
+body {
+  background-color: #ff9999
+}
+input[type=submit] {
+  width: 50%;
+  background-color: #000000;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+textarea{
+  width: 20%;
+  /*padding: 14px 20px;*/
+  margin: 15px 0;
+  border: none;
+  border-radius: 4px;
+}
+
+input[type=submit]:hover {
+  background-color: #000000;
+}
+div.lalala {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  z-index: 2;
+  width: 70%;
+  padding: 40px;
+  float: left;
+}
+
+form {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  z-index: 2;
+  width: 40%;
+  padding: 40px;
+  float: left;
+}
+</style>
+    <center><h1>EVENT MANAGER</h1></center>
+    <p style="font-size: 20px; text-align: right; padding-right: 40px; background-color: white;"><a href="/createevent"> Create event </a></p>
+</head>
+<body>
+<div>
+  <div style="width: 100%">
+    <img src="/static/PP3.jpeg" style="float:right;" width="750" height="650">
+  </div>
+  <div >
+    <form action="/Profile">
+    <h2>FEED</h2>  
+    """
+    for i in range(len(names)):
+        # aman += "<div class= 'lalala'>" + "Event_Name: " + names[i] + "</br>" + dates[i] + "</br>" + locations[i] + "</br>" + types[i] + "</br>" + details[i] + "</br>" + orgzzz[i] + "</br>" + "<a href='/invites'>Send Invitation</a>""</div>"
+        aman += "<div class= 'lalala'>" + "Event_Name: " + names[i] + "</br>" + dates[i] + "</br>" + locations[i]
+        aman += "</br>" + types[i] + "</br>" + details[i] + "</br>" + orgzzz[i] + "</br>"
+        aman += "<a href='/invites?ev_name=" + names[i]+"'>Send Invitation</a>""</div>"
+    aman += """
+    <input type="submit" value="Go to Profile">
+    </div>
+
+  
+  </form>
+</div>
+</body>
+</html>
+    """
+
+    return aman  
   
   
   
