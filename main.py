@@ -705,7 +705,27 @@ form {
 
     return aman  
   
-  
+@app.route('/createevent', methods=["GET", "POST"])
+def createevent():
+    if request.method == "POST":
+        # getting input with name = fname in HTML form
+        event_name = request.form.get("eventname")
+        # getting input with name = lname in HTML form
+        event_date = request.form.get("date")
+        event_location = request.form.get("location")
+        event_type = request.form.get("type")
+        event_details = request.form.get("details")
+        event_organizer = request.form.get("organizer")
+        print ("createevents")
+        try:
+            cursor.execute(
+                "INSERT INTO events (name, date, location, type, details, organizer) values ('" + event_name + "', '" + event_date + "', '" + event_location + "', '" + event_type + "', '" + event_details + "', '" + event_organizer +"');")
+            cnx.commit()
+            print ("Done success!")
+            return feed()
+        except:
+            print("Error: Data not done;")
+    return render_template("Create event.html") 
   
   
   
