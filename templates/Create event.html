@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+h1{
+  font-family:noteworthy;
+}
+h2 {
+  padding-left: 200px;
+  font-family:noteworthy;
+  text-decoration: underline;
+}
+
+h3{
+  text-decoration: underline;
+}
+textarea {
+  padding-left: 100px;
+  font-size: large;
+}
+body {
+  background-color: #ff9999
+}
+input[type=submit] {
+  width: 20%;
+  background-color: #000000;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+textarea{
+  width: 20%;
+  /*padding: 14px 20px;*/
+  margin: 15px 0;
+  border: none;
+  border-radius: 4px;
+}
+
+input[type=submit]:hover {
+  background-color: #000000;
+}
+
+form {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  z-index: 2;
+  width: 40%;
+  padding: 40px;
+  float: left;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 70%;
+  background-color: #ff5050;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #ff5050;
+}
+
+</style>
+    <center><h1>EVENT MANAGER</h1></center>
+  <p style="font-size: 20px; text-align: right; padding-right: 40px; background-color: white;"><a href="">Profile</a></p>
+</head>
+<body>
+<div>
+  <div style="width: 100%">
+    <img src="/static/PP3.jpeg" style="float:right;" width="750" height="650">
+  </div>
+  <div >
+    <h2 style="font-family:noteworthy;">EVENT INFORMATION</h2>
+    <form style ="float: left" action="{{ url_for("createevent")}}" method="post">
+
+      <label for="name" style="font-family:gillsans;">EVENT NAME</label>
+      <input type="text" id="name" name="eventname" placeholder="Your event name..">
+
+      <label for="date" style="font-family:gillsans;">DATE</label>
+      <input type="text" id="date" name="date" placeholder="Event date..">
+
+      <label for="location" style="font-family:gillsans;">LOCATION</label>
+      <input type="text" id="location" name="location" placeholder="Event location..">
+
+      <label for="type" style="font-family:gillsans;">TYPE</label>
+      <input type="text" id="type" name="type" placeholder="Event type..">
+
+      <label for="details" style="font-family:gillsans;">DETAILS</label>
+      <input type="text" id="details" name="details" placeholder="Event details..">
+
+      <label for="organizer" style="font-family:gillsans;">ORGANIZER</label>
+      <input type="text" id="organizer" name="organizer" placeholder="Event organizer..">
+
+      <center><a href = "/feed"><input type="submit" value="CREATE EVENT"></a></center>
+    </form>
+
+  </div>
+</div>
+</body>
+</html>
