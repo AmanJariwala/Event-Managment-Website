@@ -1,6 +1,6 @@
 import mysql.connector
 import os
-cnx = mysql.connector.connect(user="root", password="Hemali43",
+cnx = mysql.connector.connect(user="root", password="*************",
                               host="35.239.148.20",
                               database="eventmanager")
 
