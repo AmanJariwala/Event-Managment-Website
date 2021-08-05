@@ -25,3 +25,10 @@ Time Sheet
 
 After completing these tasks, I will be focusing on extreme testing and improving the UI’s.
 
+
+
+
+
+Here is a video demonstrating the project and explaining the code.
+
+https://youtu.be/q4IFpzFkSI4
