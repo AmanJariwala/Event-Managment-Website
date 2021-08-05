@@ -21,8 +21,6 @@ Time Sheet
 
 19th June – 22nd June: - Complete Create Events page.
 
-23rd June – 26th June: - Complete Event Details page.
-
 After completing these tasks, I will be focusing on extreme testing and improving the UI’s.
 
 
